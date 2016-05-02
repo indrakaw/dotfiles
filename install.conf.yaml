@@ -1,0 +1,20 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.t-game: Terminal-Game/.t-game
+    ~/.t-game/.save: t-game.save # manualy symnlink from dropbox.
+    ~/.atom/packages.cson: atom/packages.cson
+    ~/.bashrc: bashrc
+    ~/.bash_profile: bash_profile
+    ~/.bash_aliases: bash_aliases
+    ~/.bash_prompt: bash_prompt
+    ~/.gitconfig: gitconfig
+    ~/.gemrc: gemrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

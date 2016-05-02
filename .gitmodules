@@ -1,0 +1,6 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "Terminal-Game"]
+	path = Terminal-Game
+	url = https://github.com/Coilest/Terminal-Game

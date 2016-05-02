@@ -1,0 +1,9 @@
+packages: [
+  "atom-beautify"
+  "file-icons"
+  "git-time-machine"
+  "language-lua"
+  "minimap"
+  "package-sync"
+  "pigments"
+]
