@@ -1,12 +1,12 @@
-# dotfiles
+# [indrakaw](//github.com/indrakaw) / dotfiles
 @indrakaw's personal dotfiles. Using [Dotbot](https://github.com/anishathalye/dotbot/).
 
-What's inside:
+## What's inside:
 - Personified bash shell
-  - [Terminal-Game]()
-  - Git Prompt
+  - Customized bash
+  - [Terminal-Game](//github.com/Coilest/Terminal-Game)
 - Atom Editor packages
-- 
+- More stuff coming-up.
 
 ## Installation
 
