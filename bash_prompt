@@ -30,5 +30,5 @@ if [ -f ~/.t-game/frame.py ]; then
   alias tgame='python ~/.t-game/menu.py'
   LEVEL="$(echo $(cat ~/.t-game/.save) | awk '{print $1}')"
   PS1='\[\033[01;31m\]Lvl $LEVEL\[\033[00m\] '$PS1
-  export PROMPT_COMMAND='python ~/.t-game/frame.py'
+  export PROMPT_COMMAND='python3 ~/.t-game/frame.py'
 fi
