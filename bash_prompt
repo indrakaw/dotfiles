@@ -6,9 +6,16 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # Whenever $force_color_prompt is set 'yes', it still colored.
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]'
-PS1=$PS1' $(__git_ps1 "\[\033[01;32m\][%s]\[\033[00m\] ")'
-PS1=$PS1'\$ '
+PS1='${debian_chroot:+($debian_chroot)}'          # debian_chroot. I have no idea what is this.
+PS1+='\[\033[01;32m\]\u@\h\[\033[00m\]'           # username and hostname
+PS1+=' \[\033[01;34m\]\W\[\033[00m\]'             # current location
+PS1+=' $(__git_ps1 "\[\033[01;33m\][%s]\[\033[00m\] ")' # git_prompt
+PS1+='\$ ' # END
+
+# Git prompt config. Keep them `true`
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_UNTRACKEDFILES=true
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
