@@ -1,3 +1,4 @@
+#!/bin/sh
 # Tweaked Ubuntu 16.04 LTS's ~/.bashrc
 # Backup at https://git.io/vwrmS
 
@@ -14,3 +15,6 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
