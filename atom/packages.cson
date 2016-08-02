@@ -1,9 +1,14 @@
 packages: [
   "atom-beautify"
+  "atom-typescript"
+  "cson"
   "file-icons"
   "git-time-machine"
+  "language-csv"
   "language-lua"
+  "linter"
   "minimap"
   "package-sync"
   "pigments"
+  "tablr"
 ]
