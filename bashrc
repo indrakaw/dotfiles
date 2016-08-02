@@ -18,3 +18,6 @@ export PATH="~/.npm-global/bin:$PATH"
 
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="~/.config/composer/vendor/bin:$PATH"
+
+export PATH="~/bin:$PATH"
+export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:~/.npm-global/lib/node_modules

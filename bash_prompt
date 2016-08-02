@@ -1,3 +1,4 @@
+#!/bin/sh
 # Replaced default PS1.
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -7,7 +8,7 @@ fi
 
 # Whenever $force_color_prompt is set 'yes', it still colored.
 PS1='${debian_chroot:+($debian_chroot)}'          # debian_chroot. I have no idea what is this.
-PS1+='\[\033[01;32m\]\u@\h\[\033[00m\]'           # username and hostname
+PS1+='\[\033[01;31m\]\u@\h\[\033[00m\]'           # username and hostname
 PS1+=' \[\033[01;34m\]\W\[\033[00m\]'             # current location
 PS1+=' $(__git_ps1 "\[\033[01;33m\][%s]\[\033[00m\] ")' # git_prompt
 PS1+='\$ ' # END
