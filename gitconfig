@@ -24,3 +24,5 @@
 	user = indrakaw
 [include]
 	path = ~/.gitalias
+[core]
+	autocrlf = true

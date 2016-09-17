@@ -11,6 +11,7 @@
     ~/.bash_profile: bash_profile
     ~/.bash_aliases: bash_aliases
     ~/.bash_prompt: bash_prompt
+    ~/.config/redshift.conf: config/redshift.conf
     ~/.gitconfig: gitconfig
     ~/.gemrc: gemrc
 
