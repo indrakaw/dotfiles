@@ -2,11 +2,11 @@
 @indrakaw's personal dotfiles. Using [Dotbot](https://github.com/anishathalye/dotbot/).
 
 ## What's inside:
-- Personified bash shell
-  - Customized bash
-  - [Terminal-Game](//github.com/Coilest/Terminal-Game)
-- Atom Editor packages
-- More stuff coming-up.
+- Customized `bashrc`, including:
+  - `aliases`
+  - `prompt`
+  - `PATH` env
+- Personified `gitconfig`
 
 ## Installation
 

@@ -1,17 +1,20 @@
 - defaults:
     link:
       relink: true
+      create: true
 
 - clean: ['~']
 
 - link:
+    # comment bellow if you cloned this repo into .dotfiles
     ~/.dotfiles: ''
-    ~/.atom/packages.cson: atom/packages.cson
+
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.bash_aliases: bash_aliases
     ~/.bash_prompt: bash_prompt
-    ~/.config/redshift.conf: config/redshift.conf
+
+    ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gemrc: gemrc
 
