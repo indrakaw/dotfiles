@@ -1,14 +1,23 @@
+# See https://atom.io/packages/package-sync for instructions
 packages: [
   "atom-beautify"
   "atom-typescript"
   "cson"
+  "editorconfig"
+  "emmet"
   "file-icons"
+  "git-control"
   "git-time-machine"
+  "language-generic-config"
   "language-csv"
   "language-lua"
   "linter"
   "minimap"
+  "minimap-git-diff"
+  "minimap-highlight-selected"
   "package-sync"
   "pigments"
+  "qolor"
   "tablr"
+  "wakatime"
 ]

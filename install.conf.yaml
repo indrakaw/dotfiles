@@ -18,5 +18,10 @@
     ~/.gitconfig: gitconfig
     ~/.gemrc: gemrc
 
+    ~/.atom/keymap.cson: atom/keymap.cson
+    ~/.atom/packages.cson: atom/packages.cson
+    ~/.atom/snippets.cson: atom/snippets.cson
+    ~/.atom/styles.less: atom/styles.less
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

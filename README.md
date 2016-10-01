@@ -7,6 +7,7 @@
   - `prompt`
   - `PATH` env
 - Personified `gitconfig`
+- Atom Editor config
 
 ## Installation
 
