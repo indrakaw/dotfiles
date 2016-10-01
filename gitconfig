@@ -12,17 +12,17 @@
   log-fancy = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
   log-me    = !UN=$(git config user.name)&& git log --author="\"$UN\"" --pretty=format:'%h %cd %s' --date=short
   log-nice  = log --graph --decorate --pretty=oneline --abbrev-commit
-  panic     = !tar cvf ../git_panic.$(date "+%Y.%m.%d-%H.%M.%S").tar *
+  panic     = !DN=$(echo "${PWD##*/}")&& tar cvf ../git_panic.$DN.$(date "+%Y.%m.%d-%H.%M.%S").tar *
   st        = status
   wdiff     = diff --word-diff=plain
 [user]
-	name = Indra Kurniawan
-	email = indrakaw@teknik.io
+  name = Indra Kurniawan
+  email = indrakaw@teknik.io
 [color]
-	ui = auto
+  ui = auto
 [github]
-	user = indrakaw
+  user = indrakaw
 [include]
-	path = ~/.gitalias
+  path = ~/.gitalias
 [core]
-	autocrlf = true
+  autocrlf = input
