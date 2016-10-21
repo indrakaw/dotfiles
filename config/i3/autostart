@@ -1,0 +1,15 @@
+#!/bin/sh
+
+start_daemon() {
+  # TODO: better determination
+  if [ -x "/usr/bin/unity-settings-daemon" ]; then
+    exec unity-settings-daemon
+  elif [ -x "/usr/bin/gnome-settings-daemon" ]; then
+    exec gnome-settings-daemon
+  fi
+}
+
+# Load default DE settings. Why? For painless GTK+ Integration.
+# uncomment for best appearance, comment for best performance
+# or, change it to gnome-settings-daemon for Gnome
+start_daemon()
