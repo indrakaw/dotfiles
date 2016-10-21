@@ -8,6 +8,7 @@
   - `PATH` env
 - Personified `gitconfig`
 - Atom Editor config
+- `redshift` config
 
 ## Installation
 

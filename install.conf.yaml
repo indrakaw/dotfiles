@@ -23,5 +23,7 @@
     ~/.atom/snippets.cson: atom/snippets.cson
     ~/.atom/styles.less: atom/styles.less
 
+    ~/.config/redshift.conf: config/redshift.conf
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
