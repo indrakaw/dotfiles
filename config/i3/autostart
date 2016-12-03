@@ -1,4 +1,6 @@
 #!/bin/sh
+# Autostart script. Be sure this script is executeable.
+# chmod a+rx autostart
 
 start_daemon() {
   # TODO: better determination
@@ -11,5 +13,4 @@ start_daemon() {
 
 # Load default DE settings. Why? For painless GTK+ Integration.
 # uncomment for best appearance, comment for best performance
-# or, change it to gnome-settings-daemon for Gnome
-start_daemon()
+#start_daemon

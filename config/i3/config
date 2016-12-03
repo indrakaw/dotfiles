@@ -6,26 +6,32 @@
 set $mod Mod1
 
 # constants
-set $focused             #285577
+#   colors: https://www.materialui.co/colors
+set $focused             #E91E63
 set $unfocused           #222222
 set $urgent              #2f343a
-set $ubg                 #900000
+set $ubg                 #d50000
 set $ftext               #ffffff
 set $utext               #888888
 set $utxt                #ffffff
 set $ifocused            #2e9ef4
 set $iunfocused          #292d2e
 
+set $m_resize            " resize"
+
 # general configuration
 font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 hide_edge_borders both
+new_window normal 1
+new_float normal 1
 
 # program-related bindings
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+x exec i3lock --1 ~/.wallpaper
-bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+x exec sh ~/.config/i3/lock.sh
+#i3lock -t -f --color='$unfocused'
+#bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec dmenu_run -sb '$focused'
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -83,16 +89,17 @@ bindsym $mod+Ctrl+Down focus child
 bindsym $mod+Ctrl+k focus child
 
 # initial workspace
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
+# unicode chars required FontAwesome
+set $workspace1 "1:"
+set $workspace2 "2:"
+set $workspace3 "3:"
+set $workspace4 "4:"
+set $workspace5 "5:"
+set $workspace6 "6:"
+set $workspace7 "7:"
+set $workspace8 "8:"
+set $workspace9 "9:"
+set $workspace10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -131,18 +138,18 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # border changing and sticky
 bindsym $mod+b border toggle
 bindsym $mod+Shift+s sticky toggle
-bindsym $mod+m move scratchpad
-bindsym $mod+o scratchpad show
+#bindsym $mod+m move scratchpad
+#bindsym $mod+o scratchpad show
 
 # reload/restart/exit i3
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e \
-  exec sh -c '[ $(echo "No\nYes" | dmenu -i -p "You pressed the exit shortcut. Do you really want to exit i3 X session?") = "Yes" ] && i3-msg exit'
+  exec sh -c '[ $(echo "No\nYes" | dmenu -sb "$ubg" -i -p "You pressed the exit shortcut. Do you really want to exit i3 X session?") = "Yes" ] && i3-msg exit'
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
-mode "resize" {
+bindsym $mod+r mode $m_resize
+mode $m_resize {
   bindsym j resize shrink width 10 px or 10 ppt
   bindsym k resize grow height 10 px or 10 ppt
   bindsym l resize shrink height 10 px or 10 ppt
@@ -186,7 +193,7 @@ client.urgent           $urgent     $ubg         $utxt     $ubg
 # i3status bar config
 bar {
   status_command i3status -c ~/.config/i3/status.conf
-  position top
+  position bottom
   tray_output primary
   colors {
     separator $focused
@@ -198,8 +205,8 @@ bar {
 }
 
 # start the session script
-exec --no-startup-id ~/.config/i3/autostart >> ~/.config/i3/i3log 2>&1
+exec --no-startup-id ~/.config/i3/autostart >> /tmp/i3log 2>&1
 
-# start program that doesn't run in autostarto
+# start program that doesn't run in autostart
 exec --no-startup-id redshift-gtk
 exec --no-startup-id feh --bg-scale ~/.wallpaper
