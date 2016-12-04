@@ -123,6 +123,10 @@ bindsym $mod+Ctrl+j workspace prev
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
+# firefox-style tab switcher
+bindsym $mod+Next workspace next
+bindsym $mod+Prior workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
