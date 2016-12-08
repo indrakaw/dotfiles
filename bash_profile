@@ -2,7 +2,7 @@
 #	source ~/.bash_profile;
 
 # Load bash all components.
-for file in ~/.{bash_aliases,aliases_private,bash_prompt}; do
+for file in ~/.{aliases,aliases_private,bash_prompt}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
