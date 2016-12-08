@@ -11,7 +11,7 @@
 
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
-    ~/.bash_aliases: bash_aliases
+    ~/.aliases: aliases
     ~/.bash_prompt: bash_prompt
 
     ~/.editorconfig: editorconfig
