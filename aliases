@@ -10,6 +10,8 @@ alias fhere="find . -name "
 alias mkdir="mkdir -pv"
 alias wget="wget -c"
 alias myip="curl http://ipecho.net/plain; echo"
+alias catc='pygmentize -g'
+alias nautilus='nautilus --no-desktop'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -26,9 +28,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-# Add-on
-alias catc='pygmentize -g'
 
 # typos
 alias cd..='cd ..'

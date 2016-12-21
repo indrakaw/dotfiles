@@ -1,6 +1,6 @@
-# See https://atom.io/packages/package-sync for instructions
 packages: [
   "atom-beautify"
+  "atom-terminal"
   "atom-typescript"
   "cson"
   "editorconfig"
@@ -8,8 +8,8 @@ packages: [
   "file-icons"
   "git-control"
   "git-time-machine"
-  "language-generic-config"
   "language-csv"
+  "language-generic-config"
   "language-lua"
   "linter"
   "minimap"

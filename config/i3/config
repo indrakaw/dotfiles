@@ -1,23 +1,25 @@
-# i3 config file (v4)
+#v8# i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # mod key - Usually Mod1 (for "Alt" key) or Mod4 (for "Super" key)
-set $mod Mod1
+set $mod Mod4
 
 # constants
 #   colors: https://www.materialui.co/colors
-set $focused             #E91E63
-set $unfocused           #222222
-set $urgent              #2f343a
-set $ubg                 #d50000
-set $ftext               #ffffff
-set $utext               #888888
-set $utxt                #ffffff
-set $ifocused            #2e9ef4
-set $iunfocused          #292d2e
+set $focused             "#E91E63"
+set $unfocused           "#212121"
+set $urgent              "#d50000"
+set $ftext               "#ffffff"
+set $utext               "#9E9E9E"
+set $utxt                "#ffffff"
+set $ifocused            "#2e9ef4"
+set $iunfocused          "#292d2e"
+set $nbcolor             "#000000"
 
 set $m_resize            " resize"
+set $m_modlock           "Binding-lock is on. Press Escape to release."
+set $msg_exit "You pressed the exit shortcut. Do you really want to exit i3 X session?"
 
 # general configuration
 font pango:DejaVu Sans Mono 8
@@ -31,7 +33,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+x exec sh ~/.config/i3/lock.sh
 #i3lock -t -f --color='$unfocused'
 #bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec dmenu_run -sb '$focused'
+bindsym $mod+d exec dmenu_run -sb $focused -nb $nbcolor
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -90,28 +92,28 @@ bindsym $mod+Ctrl+k focus child
 
 # initial workspace
 # unicode chars required FontAwesome
-set $workspace1 "1:"
-set $workspace2 "2:"
-set $workspace3 "3:"
-set $workspace4 "4:"
-set $workspace5 "5:"
-set $workspace6 "6:"
-set $workspace7 "7:"
-set $workspace8 "8:"
-set $workspace9 "9:"
-set $workspace10 "10:"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # switch workspace left/right
 bindsym $mod+Ctrl+Right workspace next
@@ -128,16 +130,16 @@ bindsym $mod+Next workspace next
 bindsym $mod+Prior workspace prev
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # border changing and sticky
 bindsym $mod+b border toggle
@@ -149,7 +151,9 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e \
-  exec sh -c '[ $(echo "No\nYes" | dmenu -sb "$ubg" -i -p "You pressed the exit shortcut. Do you really want to exit i3 X session?") = "Yes" ] && i3-msg exit'
+  exec sh -c '[ $(echo "No\nYes" | dmenu -sb $urgent -nb $nbcolor -i -p $msg_exit) = "Yes" ] && i3-msg exit'
+# emergency exit (alt ctrl del)
+bindsym Mod1+Ctrl+Delete exit
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode $m_resize
@@ -163,6 +167,11 @@ mode $m_resize {
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
   bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym Mod1+Escape mode $m_modlock
+mode $m_modlock {
   bindsym Escape mode "default"
 }
 
@@ -181,30 +190,47 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# window borders
-for_window [window_role="browser"] border normal 0
-for_window [window_role="web-browser"] border normal 0
+# window borders (use "xprop")
+for_window [window_role="browser"] layout tabbed, border pixel 0
 for_window [window_role="gimp-image-window"] border normal 0
-for_window [class="feh"] fullscreen
+for_window [instance="discord"] border pixel 0
+for_window [instance="feh"] fullscreen
+for_window [instance="skype"] floating enable
+for_window [instance="xcalc"] floating enable
+for_window [instance="VirtualBox"] floating enable
+for_window [title="Java"] floating enable
+
+# workspace assignment
+assign [window_role="^browser$"] $ws2
+assign [instance="atom"] $ws4
+assign [instance="code"] $ws4
+assign [instance="gimp"] $ws5
+assign [instance="inkscape"] $ws5
+assign [instance="discord"] $ws9
+assign [instance="Mail"] $ws9
 
 # window colors
 #                       border      background   text      indicator
 client.focused          $focused    $focused     $ftext    $ifocused
 client.focused_inactive $unfocused  $unfocused   $utext    $iunfocused
 client.unfocused        $unfocused  $unfocused   $utext    $iunfocused
-client.urgent           $urgent     $ubg         $utxt     $ubg
+client.urgent           $urgent     $urgent      $utxt     $urgent
 
 # i3status bar config
 bar {
   status_command i3status -c ~/.config/i3/status.conf
-  position bottom
+  position top
   tray_output primary
   colors {
+    background $nbcolor
+    statusline $ftext
     separator $focused
     #                  border      background   text
     focused_workspace  $focused    $focused     $ftext
+    active_workspace   $unfocused  $unfocused   $utext
     inactive_workspace $unfocused  $unfocused   $utext
-    urgent_workspace   $urgent     $ubg         $utxt
+    urgent_workspace   $urgent     $urgent      $utxt
+    binding_mode       $urgent     $urgent      $utxt
   }
 }
 
@@ -214,3 +240,4 @@ exec --no-startup-id ~/.config/i3/autostart >> /tmp/i3log 2>&1
 # start program that doesn't run in autostart
 exec --no-startup-id redshift-gtk
 exec --no-startup-id feh --bg-scale ~/.wallpaper
+#exec --no-startup-id dropbox start
