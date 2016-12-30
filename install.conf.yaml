@@ -9,10 +9,13 @@
     # comment bellow if you cloned this repo into .dotfiles
     ~/.dotfiles: ''
 
+    ~/.Xresources: Xresources
+
+    ~/.aliases: aliases
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
-    ~/.aliases: aliases
     ~/.bash_prompt: bash_prompt
+    ~/.colors: colors/build
 
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
@@ -25,6 +28,7 @@
 
     ~/.config/redshift.conf: config/redshift.conf
     ~/.config/i3: config/i3
+    ~/.config/fish: config/fish
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

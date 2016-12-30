@@ -1,0 +1,12 @@
+! xterm
+xterm*borderWidth: 0
+xterm*faceName: Monospace:size=10:antialias=false
+xterm*font: 7x13
+
+! load colors
+#include ".colors/Xresources"
+
+! use CLIPBOARD buffer (i.e. Ctrl+c Ctrl+v)
+*VT100.Translations: #override \
+  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)

@@ -1,0 +1,56 @@
+
+set -l base00 <%- base["00"]["hex"] %>
+set -l base01 <%- base["01"]["hex"] %>
+set -l base02 <%- base["02"]["hex"] %>
+set -l base03 <%- base["03"]["hex"] %>
+set -l base04 <%- base["04"]["hex"] %>
+set -l base05 <%- base["05"]["hex"] %>
+set -l base06 <%- base["06"]["hex"] %>
+set -l base07 <%- base["07"]["hex"] %>
+set -l base08 <%- base["08"]["hex"] %>
+set -l base09 <%- base["09"]["hex"] %>
+set -l base0A <%- base["0A"]["hex"] %>
+set -l base0B <%- base["0B"]["hex"] %>
+set -l base0C <%- base["0C"]["hex"] %>
+set -l base0D <%- base["0D"]["hex"] %>
+set -l base0E <%- base["0E"]["hex"] %>
+set -l base0F <%- base["0F"]["hex"] %>
+
+set fish_color_normal $base07
+set fish_color_command $base02
+set fish_color_quote $base0B
+set fish_color_redirection $base0A
+set fish_color_end $base0E
+set fish_color_error $base08 --bold
+set fish_color_param $base04
+set fish_color_comment $base0F
+set fish_color_match $base06
+set fish_color_search_match --background=$base01 --bold
+set fish_color_operator $base06
+set fish_color_escape $base06
+set fish_color_cwd $base0B
+set fish_color_autosuggestion $base01
+set fish_color_user $base0C
+set fish_color_host $base0F
+
+fish_color_normal: #FAFAFA
+fish_color_command: #616161
+fish_color_quote: #2E7D32
+fish_color_redirection: #F9A825
+fish_color_end: #6A1B9A
+fish_color_error: #C62828 --bold
+fish_color_param: #BDBDBD
+fish_color_comment: #E91E63
+fish_color_match: #EEEEEE
+fish_color_search_match: #--background=424242 --bold
+fish_color_operator: #EEEEEE
+fish_color_escape: #EEEEEE
+fish_color_cwd: #2E7D32
+fish_color_autosuggestion: #424242
+fish_color_user: #1565C0
+fish_color_host: #E91E63
+fish_pager_color_prefix: cyan
+fish_pager_color_completion: normal
+fish_pager_color_description: 555 yellow
+fish_pager_color_progress: cyan
+fish_pager_color_secondary:

@@ -1,4 +1,4 @@
-#v8# i3 config file (v4)
+# i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -9,13 +9,24 @@ set $mod Mod4
 #   colors: https://www.materialui.co/colors
 set $focused             "#E91E63"
 set $unfocused           "#212121"
-set $urgent              "#d50000"
-set $ftext               "#ffffff"
+set $urgent              "#C62828"
+set $ftext               "#FAFAFA"
 set $utext               "#9E9E9E"
-set $utxt                "#ffffff"
-set $ifocused            "#2e9ef4"
-set $iunfocused          "#292d2e"
+set $utxt                "#FAFAFA"
+set $ifocused            "#1565C0"
+set $iunfocused          "#212121"
 set $nbcolor             "#000000"
+
+# NOTE: for Ubuntu users, bellow only works on v3.13 or above
+# and it's only available on Ubuntu Zesty.
+# set_from_resource $focused     color14 "#E91E63"
+# set_from_resource $unfocused   color0  "#212121"
+# set_from_resource $urgent      color1  "#C62828"
+# set_from_resource $ftext       color15 "#FAFAFA"
+# set_from_resource $utext       color8  "#9E9E9E"
+# set_from_resource $ftext       color15 "#FAFAFA"
+# set_from_resource $ifocused    color6  "#1565C0"
+# set_from_resource $iunfocused  color0  "#212121"
 
 set $m_resize            " resize"
 set $m_modlock           "Binding-lock is on. Press Escape to release."
@@ -29,12 +40,11 @@ new_window normal 1
 new_float normal 1
 
 # program-related bindings
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec uxterm #i3-sensible-terminal
 bindsym $mod+Shift+x exec sh ~/.config/i3/lock.sh
 #i3lock -t -f --color='$unfocused'
 #bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec dmenu_run -sb $focused -nb $nbcolor
-
+bindsym $mod+d exec dmenu_run -sb $focused -sf $ftext -nb $nbcolor -nf $utext
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -151,9 +161,9 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e \
-  exec sh -c '[ $(echo "No\nYes" | dmenu -sb $urgent -nb $nbcolor -i -p $msg_exit) = "Yes" ] && i3-msg exit'
+  exec sh -c '[ $(echo "No\nYes" | dmenu -sb $urgent -nb $nbcolor -nf $utext -i -p $msg_exit) = "Yes" ] && i3-msg exit'
 # emergency exit (alt ctrl del)
-bindsym Mod1+Ctrl+Delete exit
+#bindsym Mod1+Ctrl+Delete exit
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode $m_resize
@@ -191,17 +201,19 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # window borders (use "xprop")
-for_window [window_role="browser"] layout tabbed, border pixel 0
+for_window [window_role="browser"] layout tabbed, border pixelD
 for_window [window_role="gimp-image-window"] border normal 0
 for_window [instance="discord"] border pixel 0
 for_window [instance="feh"] fullscreen
 for_window [instance="skype"] floating enable
 for_window [instance="xcalc"] floating enable
+for_window [instance="xombrero"] layout tabbed, border pixel 0
 for_window [instance="VirtualBox"] floating enable
 for_window [title="Java"] floating enable
 
 # workspace assignment
 assign [window_role="^browser$"] $ws2
+assign [instance="xombrero"] $ws2
 assign [instance="atom"] $ws4
 assign [instance="code"] $ws4
 assign [instance="gimp"] $ws5
@@ -235,9 +247,12 @@ bar {
 }
 
 # start the session script
-exec --no-startup-id ~/.config/i3/autostart >> /tmp/i3log 2>&1
+exec --no-startup-id ~/.config/i3/autostart >> i3-log 2>&1
 
 # start program that doesn't run in autostart
 exec --no-startup-id redshift-gtk
 exec --no-startup-id feh --bg-scale ~/.wallpaper
 #exec --no-startup-id dropbox start
+
+# for some reason display manager won't load Xresources
+exec xrdb -load ~/.Xresources

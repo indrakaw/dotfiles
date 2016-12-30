@@ -26,5 +26,5 @@ trim_trailing_whitespace = false
 [{shrc,profile,xinitrc,xprograms,*.sh}]
 indent_size = 4
 
-[*.yml]
+[*.yml,*.yaml]
 indent_size = 2

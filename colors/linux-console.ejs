@@ -1,0 +1,24 @@
+#!/bin/sh
+# Stolen from terminal.sexys
+if [ "$TERM" = "linux" ]; then
+  /bin/echo -e "
+  \e]P0<%- base["00"]["hexbgr"] %>
+  \e]P1<%- base["08"]["hexbgr"] %>
+  \e]P2<%- base["0B"]["hexbgr"] %>
+  \e]P3<%- base["0A"]["hexbgr"] %>
+  \e]P4<%- base["0D"]["hexbgr"] %>
+  \e]P5<%- base["0E"]["hexbgr"] %>
+  \e]P6<%- base["0C"]["hexbgr"] %>
+  \e]P7<%- base["05"]["hexbgr"] %>
+  \e]P8<%- base["03"]["hexbgr"] %>
+  \e]P9<%- base["09"]["hexbgr"] %>
+  \e]PA<%- base["01"]["hexbgr"] %>
+  \e]PB<%- base["02"]["hexbgr"] %>
+  \e]PC<%- base["04"]["hexbgr"] %>
+  \e]PD<%- base["06"]["hexbgr"] %>
+  \e]PE<%- base["0F"]["hexbgr"] %>
+  \e]PF<%- base["07"]["hexbgr"] %>
+  "
+  # get rid of artifacts
+  clear
+fi

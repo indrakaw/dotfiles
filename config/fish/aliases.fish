@@ -1,3 +1,7 @@
+# Exported from .aliases
+# Some of these will overide default function on
+# /usr/share/fish/functions/ll.fish
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -13,13 +17,8 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias catc='pygmentize -g'
 alias nautilus='nautilus --no-desktop'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if test -x /usr/bin/dircolors
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
@@ -27,7 +26,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-fi
+end
 
 # typos
 alias cd..='cd ..'

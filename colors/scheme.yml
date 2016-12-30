@@ -1,0 +1,23 @@
+# Info
+scheme: "Material Colors"
+author: "Indra K. (https://github.com/indrakaw)"
+
+# Grayscale
+base00: "212121"
+base01: "424242"
+base02: "616161"
+base03: "9E9E9E"
+base04: "BDBDBD"
+base05: "E0E0E0"
+base06: "EEEEEE"
+base07: "FAFAFA"
+
+# Colors
+base08: "C62828"
+base09: "EF6C00"
+base0A: "F9A825"
+base0B: "2E7D32"
+base0C: "1565C0"
+base0D: "283593"
+base0E: "6A1B9A"
+base0F: "E91E63"

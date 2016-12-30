@@ -7,7 +7,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # Use short_prompt?
-short_prompt=true
+short_prompt=false
 
 # Whenever $force_color_prompt is set 'yes', it still colored.
 PS1='${debian_chroot:+($debian_chroot)}'          # debian_chroot. I have no idea what is this.
@@ -33,7 +33,7 @@ esac
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
