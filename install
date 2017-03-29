@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${BASEDIR}"
+
+# Framework setup
+[ ! -d ~/.vim/bundle/Vundle.vim ] &&
+  echo "Installing Vundle" &&
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Stuff
+[ ! -f ~/.gemrc ] &&
+  echo "Creating .gemrc file" &&
+  echo "gem: --no-document" > ~/.gemrc
+
+[ ! -f ~/.gemrc ] &&
+  echo "Creating .npmrc file" &&
+  echo "prefix=~/.npm-global" > ~/.npmrc
+
+# Dotbot install
+DOTBOT_CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
+DOTBOT_BIN="bin/dotbot"
+
+git submodule update --init --recursive "${DOTBOT_DIR}"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${DOTBOT_CONFIG}" "${@}"

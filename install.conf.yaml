@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    # add comment above if you cloned this repo into .dotfiles
+
+    ~/.aliases: aliases
+    ~/.editorconfig: editorconfig
+    ~/.gitconfig: gitconfig
+    ~/.gitconfig_local: gitconfig_local
+    ~/.vimrc: vimrc
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [vim +PluginInstall +qall, Installing Vundle plugins]
