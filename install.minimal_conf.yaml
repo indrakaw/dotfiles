@@ -12,7 +12,6 @@
     # cores
     ~/.aliases: aliases
     ~/.editorconfig: editorconfig
-    ~/.fbtermrc: fbtermrc
     ~/.gitconfig: gitconfig
     ~/.gitconfig_local: gitconfig_local
     ~/.tmux.conf: tmux.conf

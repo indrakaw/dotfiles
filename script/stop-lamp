@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# to disable LAMP stack on start-up, do this:
+# 	systemctl disable mysql.service php7.0-fpm.service apache2.service
+# http://askubuntu.com/questions/777226/how-to-exclude-lamp-from-startup-in-16-04
+
+# if there's MySQL Server error while upgrading package, try to re-enable MySQL:
+#	systemctl enable mysql.service
+# then,
+#	sudo apt install -f
+
+sudo service apache2 stop && 
+sudo service mysql stop &&
+sudo service php7.0-fpm stop

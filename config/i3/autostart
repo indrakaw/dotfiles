@@ -1,0 +1,16 @@
+#!/bin/sh
+# Autostart script. Be sure this script is executeable.
+# chmod a+rx autostart
+
+start_daemon() {
+  # TODO: better determination
+  if [ -x "/usr/bin/unity-settings-daemon" ]; then
+    exec unity-settings-daemon
+  elif [ -x "/usr/bin/gnome-settings-daemon" ]; then
+    exec gnome-settings-daemon
+  fi
+}
+
+# Load default DE settings. Why? For painless GTK+ Integration.
+# uncomment for best appearance, comment for best performance
+#start_daemon

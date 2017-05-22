@@ -1,7 +1,7 @@
 #!/bin/bash
 alias shutdown="sudo shutdown"
 alias reboot="sudo reboot"
-alias halt="sudo halt"
+#alias halt="sudo halt"
 alias poweroff="sudo poweroff"
 
 alias s="sudo"
@@ -45,3 +45,11 @@ fi
 alias cd..='cd ..'
 alias :q!='exit'
 alias quit='exit'
+
+# if exec alternates
+command -v hub >/dev/null 2>&1 && alias git='hub'
+command -v htop >/dev/null 2>&1 && alias top='htop'
+
+function bundle!() {
+  bundle $* --path ./.gems
+}

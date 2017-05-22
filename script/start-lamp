@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# to disable LAMP stack on start-up, do this:
+# systemctl disable mysql.service php7.0-fpm.service apache2.service
+# http://askubuntu.com/questions/777226/how-to-exclude-lamp-from-startup-in-16-04
+
+sudo service apache2 start && 
+sudo service mysql start &&
+sudo service php7.0-fpm start

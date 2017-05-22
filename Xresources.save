@@ -1,0 +1,7 @@
+! font-config
+xterm*faceName: Monospa
+mace:size=10:antialias=false
+xterm*font: 7x13
+
+! load colors
+#include ".colors/Xresources"
